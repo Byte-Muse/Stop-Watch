@@ -8,14 +8,15 @@
 </head>
 <body>
     <div class="stopwatch">
-        <h1>00:00:00</h1>
+        <h1 id="clock">00:00:00</h1>
         <div class="buttons">
-            <img src="furina_start-removebg-preview.png" alt="start">
-            <img src="furina_stop-removebg-preview (1).png" alt="stop">
-            <img src="furina_restart-removebg-preview.png" alt="reset">
+            <img id="btn" src="images/furina_start-removebg-preview.png" alt="start" onclick="watchStart()">
+            <img id="btn" src="images/furina_stop-removebg-preview (1).png" alt="stop">
+            <img id="btn" src="images/furina_restart-removebg-preview.png" alt="reset">
         </div>
 
     </div>
     
+    <link rel="module" href="Stop Watch.js">
 </body>
 </html>
