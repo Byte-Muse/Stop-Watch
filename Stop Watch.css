@@ -27,15 +27,19 @@ body{
 
 .stopwatch{
     width: 90%;
+    height: 200px;
     max-width: 900px;
     background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(images/Fontaine.jfif);
     background-size: cover;
     background-position: center;
     text-align: center;
     padding: 30px 0;
-    margin:150px;
+    margin-right:5%;
+    margin-top: 100px;
+    margin-left: 5%;
     box-shadow: 10px 20px 30px #353244;
     color: #8A9A9A;
+
 }
 
 .buttons{
@@ -45,14 +49,61 @@ body{
 }
 
 .buttons img{
-    cursor: pointer;
+
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 0;
     padding: 0;
+    display: flex;
 }
 
 .buttons.div.p{
     margin-top: 0;
     padding-top: 0;
+}
+
+.holographic-btn {
+    width: 200px;    
+    cursor: pointer;
+    height: 100px;
+    background: #35324470;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.holographic-btn p {
+    position: relative;
+    z-index: 2;
+}
+
+.holographic-btn::before {
+    content: '';
+    position: absolute;
+    top: -0%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg,transparent,transparent 30%,rgba(231, 255, 255, 0.5));
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.holographic-btn:hover {
+    border-radius: 30px;
+    padding: 5px;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(231, 255, 255, 0.5);
+}
+
+.holographic-btn:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
 }
