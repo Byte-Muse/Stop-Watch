@@ -25,3 +25,13 @@ function watchStart(){
     }
     timer = setInterval(stopwatch, 1000); //start the execution every 1000ms==1s
 }
+
+function watchStop(){
+    clearInterval(timer);
+}
+
+function watchReset(){
+    clearInterval(timer);
+    [seconds, minutes, hours] = [0,0,0];
+    clock.innerHTML="00:00:00"
+}
