@@ -1,38 +1,20 @@
-let [seconds, minutes, hours] = [0,0,0];
-let timer = null;
-let startTime = 0, elapsed= 0;
-let clock = document.getElementById("clock");
+let startTime = 0, elapsed = 0, timer = null;
+const clock = document.getElementById("clock");
 
-function stopwatch(){
-    seconds++;
-    if(seconds == 60){
-        seconds = 0;
-        minutes++;
-        if(minutes==60){
-            minutes = 0;
-            hours++;
-        }
-    }
-    let h = hours < 10 ? "0" + hours : hours;
-    let m = minutes < 10 ? "0" + minutes : minutes;
-    let s = seconds < 10 ? "0" + seconds : seconds;
+const pad = n => String(n).padStart(2, "0");
 
-    clock.innerHTML = h + " : " + m + " : " + s;
+function render() {
+  const total = Math.floor(elapsed / 1000);
+  clock.textContent =
+    `${pad(Math.floor(total / 3600))} : ${pad(Math.floor(total / 60) % 60)} : ${pad(total % 60)}`;
 }
 
-function watchStart(){
-    if(timer !==null){
-        clearInterval(timer);
-    }
-    timer = setInterval(stopwatch, 1000); //start the execution every 1000ms==1s
+function watchStart() {
+  if (timer !== null) return;
+  startTime = Date.now() - elapsed;
+  timer = setInterval(() => { elapsed = Date.now() - startTime; render(); }, 250);
 }
 
-function watchStop(){
-    clearInterval(timer);
-}
+function watchStop() { clearInterval(timer); timer = null; }
 
-function watchReset(){
-    clearInterval(timer);
-    [seconds, minutes, hours] = [0,0,0];
-    clock.innerHTML="00 : 00 : 00"
-}
+function watchReset() { watchStop(); elapsed = 0; render(); }
