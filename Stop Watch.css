@@ -35,7 +35,7 @@ body{
     text-align: center;
     padding: 30px 0;
     margin-right:5%;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     margin-left: 5%;
     box-shadow: 10px 20px 30px #353244;
     color: #8A9A9A;
@@ -64,7 +64,7 @@ body{
 
 .holographic-btn {
     width: 200px;    
-    cursor: pointer;
+    cursor: url('ArrowCursor.png'), auto ;
     height: 100px;
     background: #35324470;
     display: flex;

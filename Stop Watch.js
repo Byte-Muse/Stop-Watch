@@ -1,6 +1,7 @@
 let [seconds, minutes, hours] = [0,0,0];
-let clock = document.getElementById("clock");
 let timer = null;
+let startTime = 0, elapsed= 0;
+let clock = document.getElementById("clock");
 
 function stopwatch(){
     seconds++;
